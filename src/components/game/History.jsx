@@ -23,7 +23,7 @@ function History() {
       <div className="bg-[#231236c2] uppercase text-white md:text-xl font-semibold absolute top-0 left-0 h-full flex justify-center items-center px-4 md:p-6 rounded-[29px]">
         History
       </div>
-      <div className="flex items-center flex-wrap flex-col gap-4 md:gap-6 w-full overflow-x-auto">
+      <div className="flex items-center flex-wrap flex-col gap-4 md:gap-6 w-full overflow-x-auto cursor-pointer">
         {histories.map((value, index) => (
           <Item key={index} value={value} index={index + 1} />
         ))}

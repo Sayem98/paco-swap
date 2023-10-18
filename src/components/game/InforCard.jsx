@@ -1,7 +1,9 @@
 import { useState } from "react";
 
 function InforCard() {
-  const [betAmount, setBetAmount] = useState("");
+  const [betAmount, setBetAmount] = useState("0.00020000 BTC");
+  const [multiplier, setMultiplier] = useState("1.96X");
+  const [payout, setPayout] = useState("0.00039200 BTC");
 
   return (
     <div className="gradient-infor-card-bg rounded-[29px] border-2 border-[#491b7f61] px-4 md:px-16 py-16 relative z-50 flex flex-col gap-10 items-center">
@@ -23,7 +25,7 @@ function InforCard() {
         <div className="flex flex-col md:flex-row items-center gap-6 md:gap-12 w-full">
           <div className="flex items-center rounded-2xl border border-[#c786f2] relative w-full">
             <input
-              type="number"
+              type="text"
               className="bg-transparent focus:outline-none text-white text-2xl px-6 py-4 w-full md:w-[95%]"
               value={betAmount}
               onChange={(e) => setBetAmount(e.target.value)}
@@ -56,6 +58,7 @@ function InforCard() {
           <input
             type="text"
             className="bg-transparent focus:outline-none text-white text-2xl px-6 py-4 w-full rounded-2xl border border-[#c786f2]"
+            value={multiplier}
           />
         </div>
 
@@ -65,6 +68,7 @@ function InforCard() {
             <input
               type="text"
               className="bg-transparent focus:outline-none text-white text-2xl px-6 py-4 w-full"
+              value={payout}
             />
 
             <div className="absolute top-3 right-5">

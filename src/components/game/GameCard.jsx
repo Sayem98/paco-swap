@@ -11,18 +11,22 @@ function GameCard() {
   }
 
   return (
-    <div className="gradient-card-bg rounded-[29px] border-2 border-[#491b7f61] px-4 md:px-16 py-6 relative z-50 flex flex-col gap-12 items-center">
-      <div className="flex flex-col md:flex-row gap-6 md:gap-0 items-center justify-between w-full md:pt-10">
+    <div className="gradient-card-bg rounded-[29px] border-2 border-[#491b7f61] px-4 md:px-16 py-8 md:py-6 relative z-50 flex flex-col gap-16 md:gap-12 items-center">
+      <div className="flex gap-2 md:gap-0 items-center justify-between w-full md:pt-10">
         <div className="flex flex-col justify-center items-center gap-1">
           <p className="uppercase text-white text-xl">Prediction</p>
-          <span className="text-white text-[2.5rem] md:text-[3.5rem] gradient-input-bg shadow-[0px_4px_4px_0px_#00000040] border border-[#491b7e61] rounded-lg text-center w-[150px] h-[70px] md:w-[180px] md:h-[90px]">
-            {currentValue}
+          <span className="gradient-input-bg flex justify-center items-center shadow-[0px_4px_4px_0px_#00000040] border border-[#491b7e61] rounded-lg w-[150px] h-[70px] md:w-[180px] md:h-[100px]">
+            <p className="drop-shadow-[4px_8px_4px_#c235ce80] text-white text-[2.5rem] md:text-[4.5rem]">
+              {currentValue}
+            </p>
           </span>
         </div>
         <div className="flex flex-col justify-center items-center gap-1">
           <p className="uppercase text-white text-xl">Result</p>
-          <span className="text-[#67C257] text-[2.5rem] md:text-[3.5rem] gradient-input-bg shadow-[0px_4px_4px_0px_#00000040] border border-[#491b7e61] rounded-lg text-center w-[150px] h-[70px] md:w-[180px] md:h-[90px]">
-            {result}
+          <span className="gradient-input-bg flex justify-center items-center shadow-[0px_4px_4px_0px_#00000040] border border-[#491b7e61] rounded-lg w-[150px] h-[70px] md:w-[180px] md:h-[90px]">
+            <p className="drop-shadow-[4px_8px_4px_#c235ce80] text-[#67C257] text-[2.5rem] md:text-[4.5rem]">
+              {result}
+            </p>
           </span>
         </div>
       </div>
