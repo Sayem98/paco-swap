@@ -11,7 +11,7 @@ function AppLayout() {
       <div className="flex gap-10 lg:px-8 py-2">
         <Sidebar />
         <MobileNavbar />
-        <div className="flex-1">
+        <div className="flex-1 overflow-hidden">
           <Outlet />
         </div>
       </div>

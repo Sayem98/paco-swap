@@ -6,11 +6,12 @@ import { bsc, sepolia } from "wagmi/chains";
 import { Toaster } from "react-hot-toast";
 import PageNotFound from "./pages/PageNotFound";
 import Spinner from "./components/Spinner";
-import Web3 from "web3";
+
 const Homepage = lazy(() => import("./pages/Homepage"));
 const AppLayout = lazy(() => import("./components/AppLayout"));
 const Swappage = lazy(() => import("./pages/Swappage"));
 const ComingSoon = lazy(() => import("./pages/ComingSoon"));
+const Game = lazy(() => import("./pages/Game"));
 
 const chains = [bsc];
 const config = createConfig(
@@ -37,7 +38,7 @@ function App() {
                 <Route index element={<Swappage />} />
                 <Route path="earn" element={<ComingSoon />} />
                 <Route path="swap" element={<Swappage />} />
-                <Route path="games" element={<ComingSoon />} />
+                <Route path="games" element={<Game />} />
                 <Route path="lottery" element={<ComingSoon />} />
                 <Route path="paco-staking" element={<ComingSoon />} />
                 <Route path="about-staking" element={<ComingSoon />} />

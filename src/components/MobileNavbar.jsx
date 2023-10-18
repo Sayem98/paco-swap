@@ -10,7 +10,7 @@ function MobileNavbar() {
   const [showSidebar, setShowSidebar] = useState(false);
 
   return (
-    <div className="block md:hidden fixed left-0 bottom-1 w-full z-50 ">
+    <div className="block md:hidden fixed left-0 bottom-1 w-full z-[9999] ">
       <div className="flex justify-between bg-[#432663] px-6 py-2 m-2 text-white font-bold rounded-3xl shadow-md shadow-[#432663]">
         <NavLink
           to="/dashboard"

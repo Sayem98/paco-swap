@@ -54,7 +54,7 @@ function MobileSidebar({ show, setShow }) {
   if (!show) return null;
 
   return createPortal(
-    <div className="block md:hidden absolute top-0 left-0 bg-gray-200/20 backdrop-blur-sm w-screen h-screen z-40">
+    <div className="block md:hidden absolute top-0 left-0 bg-gray-200/20 backdrop-blur-sm w-screen h-screen z-[999]">
       <div
         ref={ref}
         className={cn("flex md:hidden w-64 bg-[#3f2b62] py-6  h-full flex-col")}

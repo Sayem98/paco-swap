@@ -16,7 +16,13 @@
     @apply bg-white;
     @apply text-gray-700;
     font-family: "Nunito", sans-serif;
+    overflow-x: hidden;
   }
+}
+
+@font-face {
+  font-family: "Baloo";
+  src: url("/fonts/BalooChettan-Regular.ttf");
 }
 
 input::-webkit-outer-spin-button,
@@ -35,7 +41,9 @@ input:disabled {
 
 /* width */
 ::-webkit-scrollbar {
-  width: 8px;
+  /* width: 8px; */
+  width: 5px;
+  height: 5px;
 }
 
 /* Track */
@@ -45,10 +53,113 @@ input:disabled {
 
 /* Handle */
 ::-webkit-scrollbar-thumb {
-  background: #f1f1f1;
+  background: #3f2b62;
 }
 
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
   background: #534982;
 }
+
+.card-bg {
+  background: url("/bg.png") rgba(211, 211, 211, 0) 50% / cover no-repeat;
+  width: 25%;
+  height: 90%;
+  position: absolute;
+  top: 10px;
+  right: 20px;
+  z-index: -1;
+  filter: blur(4px);
+}
+
+@media only screen and (max-width: 1400px) {
+  .card-bg {
+    width: 38%;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .card-bg {
+    width: 90%;
+    height: 70%;
+    top: 40px;
+  }
+}
+
+/* Linear gradient color */
+.gradient-green-bg {
+  background: linear-gradient(
+    180deg,
+    rgba(122, 246, 78, 0.7) 0%,
+    rgba(37, 105, 13, 0.51) 100%
+  );
+}
+
+.gradient-red-bg {
+  background: linear-gradient(180deg, #f55f56 0%, rgba(143, 18, 10, 0.65) 100%);
+}
+
+.gradient-card-bg {
+  background: linear-gradient(
+    90deg,
+    #3c1272 0.04%,
+    rgba(155, 80, 252, 0.13) 106.74%
+  );
+}
+.gradient-input-bg {
+  background: linear-gradient(
+    90deg,
+    #3c1272 0.04%,
+    rgba(155, 80, 252, 0.13) 106.74%
+  );
+}
+
+.gradient-infor-card-bg {
+  background: linear-gradient(
+    90deg,
+    rgba(96, 45, 136, 0.85) 0.03%,
+    rgba(96, 45, 136, 0.31) 99.97%
+  );
+}
+
+/* Slider */
+:root {
+  --main-color: #ee2e39;
+  --main-color-hover: rgb(104, 117, 217, 0.2);
+  --track-color: #55ad69;
+}
+
+.customSlider {
+  width: 100%;
+}
+
+.customSlider-track {
+  top: 0px;
+  height: 16px;
+  background: var(--track-color);
+  border-radius: 80px;
+}
+
+.customSlider-track.customSlider-track-0 {
+  background: var(--main-color);
+}
+
+.customSlider-track.customSlider-thumb-0 .active {
+  right: 0 !important;
+}
+
+.customSlider-thumb {
+  position: absolute;
+  top: -40px;
+
+  cursor: pointer;
+  background: url("/slider-img.png") transparent 50% / cover no-repeat;
+  width: 60px;
+  height: 78px;
+  margin-left: -20px;
+  outline: none;
+}
+
+/* .customSlider-thumb:hover {
+  box-shadow: 0 0 0 8px var(--main-color-hover);
+} */

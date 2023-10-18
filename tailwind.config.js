@@ -7,6 +7,9 @@ export default {
         "hero-background": "url('/hero-bg.png')",
         "main-background": "url('/main-bg.svg')",
       },
+      fontFamily: {
+        baloo: ["Baloo"],
+      },
     },
   },
   plugins: [],
