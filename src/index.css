@@ -133,15 +133,32 @@ input:disabled {
   width: 100%;
 }
 
-.customSlider-track {
+.roll-under {
   top: 0px;
   height: 16px;
-  background: var(--track-color);
   border-radius: 80px;
 }
 
-.customSlider-track.customSlider-track-0 {
+.roll-over {
+  top: 0px;
+  height: 16px;
+  border-radius: 80px;
+}
+
+.roll-under.roll-under-0 {
+  background: var(--track-color);
+}
+
+.roll-under.roll-under-1 {
   background: var(--main-color);
+}
+
+.roll-over.roll-over-0 {
+  background: var(--main-color);
+}
+
+.roll-over.roll-over-1 {
+  background: var(--track-color);
 }
 
 .customSlider-track.customSlider-thumb-0 .active {

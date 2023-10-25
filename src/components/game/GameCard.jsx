@@ -29,7 +29,7 @@ function GameCard({ prediction, setPrediction, result, onRoll, rollType }) {
         <ReactSlider
           className="customSlider"
           thumbClassName="customSlider-thumb"
-          trackClassName="customSlider-track"
+          trackClassName={rollType === "rollUnder" ? "roll-under" : "roll-over"}
           min={rollType == "rollUnder" ? 1 : 4}
           max={rollType == "rollUnder" ? 95 : 98}
           defaultValue={0}
