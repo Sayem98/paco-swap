@@ -1,6 +1,6 @@
 import ReactSlider from "react-slider";
 
-function GameCard({ prediction, setPrediction, result, onRoll }) {
+function GameCard({ prediction, setPrediction, result, onRoll, rollType }) {
   return (
     <div className="gradient-card-bg rounded-[29px] border-2 border-[#491b7f61] px-4 md:px-16 py-8 md:py-3 relative z-50 flex flex-col gap-16 md:gap-12 items-center">
       <div className="flex gap-2 md:gap-0 items-center justify-between w-full md:pt-2">
@@ -30,8 +30,8 @@ function GameCard({ prediction, setPrediction, result, onRoll }) {
           className="customSlider"
           thumbClassName="customSlider-thumb"
           trackClassName="customSlider-track"
-          min={1}
-          max={99}
+          min={rollType == "rollUnder" ? 1 : 4}
+          max={rollType == "rollUnder" ? 95 : 98}
           defaultValue={0}
           value={prediction}
           onChange={(value) => setPrediction(value)}

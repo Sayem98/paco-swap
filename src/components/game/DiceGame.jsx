@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useAccount } from "wagmi";
 import Control from "./Control";
 import Footer from "./Footer";
@@ -19,6 +19,28 @@ function DiceGame() {
 
   const [reFetchHistory, setReFetchHistory] = useState(false);
 
+  useEffect(() => {
+    // same logic copy pase in backend
+    if (rollType === "rollUnder") {
+      setWinChance(Number(prediction));
+      setMultiplier((100 / Number(prediction)) * (1 - 0.02));
+      setPayout(betAmount * multiplier);
+    } else {
+      setWinChance(100 - Number(prediction) - 1);
+      setMultiplier((100 / (100 - Number(prediction) - 1)) * (1 - 0.02));
+      setPayout(betAmount * multiplier);
+    }
+  }, [prediction, betAmount, multiplier, rollType]);
+
+  async function handleCahngeOFRoll(type = "rollUnder") {
+    setRollType(type);
+    if (type === "rollUnder" && prediction > 95) {
+      setPrediction(95);
+    } else if (type === "rollOver" && prediction < 4) {
+      setPrediction(4);
+    }
+  }
+
   async function handleRoll() {
     if (!address) return alert("Please connect your wallet first");
     if (!betAmount || !prediction || !rollType) return;
@@ -33,7 +55,7 @@ function DiceGame() {
 
       setResult(data.winNumber);
       setReFetchHistory((reFetchHistory) => !reFetchHistory);
-      // alert(data.status);
+      alert(data.status);
     } catch (err) {
       console.log(err);
     }
@@ -49,6 +71,7 @@ function DiceGame() {
           setPrediction={setPrediction}
           result={result}
           onRoll={handleRoll}
+          rollType={rollType}
         />
         <InforCard
           betAmount={betAmount}
@@ -58,7 +81,7 @@ function DiceGame() {
           payout={payout}
           setPayout={setPayout}
           rollType={rollType}
-          setRollType={setRollType}
+          setRollType={handleCahngeOFRoll}
           winChance={winChance}
         />
       </div>

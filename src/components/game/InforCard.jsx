@@ -1,3 +1,6 @@
+const MAX_BET = 500;
+const MIN_BET = 1;
+
 function InforCard({
   betAmount,
   setBetAmount,
@@ -56,16 +59,34 @@ function InforCard({
             </div>
           </div>
           <div className="flex items-center gap-6 w-full">
-            <div className="text-[#370843] uppercase cursor-pointer text-2xl flex items-center justify-center bg-[#8149b3] border border-[#120425] shadow-[0px_15px_8px_#19032461] rounded-[20px] w-[95px] h-[65px] transition hover:-translate-y-1">
+            <div
+              className="text-[#370843] uppercase cursor-pointer text-2xl flex items-center justify-center bg-[#8149b3] border border-[#120425] shadow-[0px_15px_8px_#19032461] rounded-[20px] w-[95px] h-[65px] transition hover:-translate-y-1"
+              onClick={() => {
+                if (betAmount * 2 > MAX_BET) return;
+                setBetAmount(betAmount * 2);
+              }}
+            >
               2x
             </div>
-            <div className="text-[#370843] uppercase cursor-pointer text-2xl flex items-center justify-center bg-[#8149b3] border border-[#120425] shadow-[0px_15px_8px_#19032461] rounded-[20px] w-[95px] h-[65px] transition hover:-translate-y-1">
+            <div
+              className="text-[#370843] uppercase cursor-pointer text-2xl flex items-center justify-center bg-[#8149b3] border border-[#120425] shadow-[0px_15px_8px_#19032461] rounded-[20px] w-[95px] h-[65px] transition hover:-translate-y-1"
+              onClick={() => {
+                if (betAmount / 2 < MIN_BET) return;
+                setBetAmount(betAmount / 2);
+              }}
+            >
               1/2
             </div>
-            <div className="text-[#370843] uppercase cursor-pointer text-2xl flex items-center justify-center bg-[#8149b3] border border-[#120425] shadow-[0px_15px_8px_#19032461] rounded-[20px] w-[95px] h-[65px] transition hover:-translate-y-1">
+            <div
+              className="text-[#370843] uppercase cursor-pointer text-2xl flex items-center justify-center bg-[#8149b3] border border-[#120425] shadow-[0px_15px_8px_#19032461] rounded-[20px] w-[95px] h-[65px] transition hover:-translate-y-1"
+              onClick={() => setBetAmount(MIN_BET)}
+            >
               Min
             </div>
-            <div className="text-[#370843] uppercase cursor-pointer text-2xl flex items-center justify-center bg-[#8149b3] border border-[#120425] shadow-[0px_15px_8px_#19032461] rounded-[20px] w-[95px] h-[65px] transition hover:-translate-y-1">
+            <div
+              className="text-[#370843] uppercase cursor-pointer text-2xl flex items-center justify-center bg-[#8149b3] border border-[#120425] shadow-[0px_15px_8px_#19032461] rounded-[20px] w-[95px] h-[65px] transition hover:-translate-y-1"
+              onClick={() => setBetAmount(MAX_BET)}
+            >
               Max
             </div>
           </div>
@@ -78,7 +99,7 @@ function InforCard({
           <input
             type="text"
             className="bg-transparent focus:outline-none text-white text-2xl px-6 py-3 w-full rounded-2xl border border-[#c786f2]"
-            value={multiplier}
+            value={Number(multiplier).toFixed(4) + "X"}
             onChange={(e) => setMultiplier(e.target.value)}
           />
         </div>
@@ -89,7 +110,8 @@ function InforCard({
             <input
               type="text"
               className="bg-transparent focus:outline-none text-white text-2xl px-6 py-3 w-full"
-              value={payout}
+              // eslint-disable-next-line no-extra-boolean-cast
+              value={Boolean(Number(payout)) ? Number(payout).toFixed(8) : 0}
               onChange={(e) => setPayout(e.target.value)}
             />
 
